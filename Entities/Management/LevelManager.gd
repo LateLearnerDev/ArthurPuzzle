@@ -3,10 +3,15 @@ extends Node2D
 
 export var next_scene: PackedScene
 onready var goals: Array = get_tree().get_nodes_in_group("Goals")
+onready var arthurs: Array = get_tree().get_nodes_in_group("Arthurs")
 onready var level_end: CanvasLayer = $LevelEnd
 
 func _ready():
-	pass
+	var key = 48
+	for arthur in arthurs:
+		key += 1
+		arthur.id = key
+		print(arthur.id)
 
 func _check_all_goals():
 	for goal in goals:
@@ -17,8 +22,12 @@ func _check_all_goals():
 		
 func to_next_level() -> void:	
 	level_end.end_level_transition()
-	#Need to call below, only after above function has finished (the animation)
-	#get_tree().change_scene_to(next_scene)
+	yield(level_end, "tree_exited")
+	# I think this is cheating. I yield the animation to finish inside LevelEnd
+	# and then free it from memory so that I can listen here and only switch to 
+	# next scene once LevelEnd has exited the tree.
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene_to(next_scene)
 
 func _get_configuration_warning() -> String:
 	return "The next scene property can't be empty" if not next_scene else ""
