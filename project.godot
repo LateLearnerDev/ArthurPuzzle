@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Arthur Puzzle"
 run/main_scene="res://Levels/TestingArea.tscn"
 
+[autoload]
+
+CharacterManagement="*res://Entities/Player/CharacterManagement.gd"
+
 [display]
 
 window/size/width=176

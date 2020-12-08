@@ -3,15 +3,10 @@ extends Node2D
 
 export var next_scene: PackedScene
 onready var goals: Array = get_tree().get_nodes_in_group("Goals")
-onready var arthurs: Array = get_tree().get_nodes_in_group("Arthurs")
 onready var level_end: CanvasLayer = $LevelEnd
 
 func _ready():
-	var key = 48
-	for arthur in arthurs:
-		key += 1
-		arthur.id = key
-		print(arthur.id)
+	CharacterManagement.initialise_arthurs()
 
 func _check_all_goals():
 	for goal in goals:

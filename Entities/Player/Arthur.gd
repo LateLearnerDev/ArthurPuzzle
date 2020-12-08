@@ -7,7 +7,8 @@ enum {
 export var speed = 1800
 var state
 var velocity = Vector2.ZERO
-var id
+var playerId
+var active = true
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -17,11 +18,14 @@ func _ready():
 	animationTree.active = true
 	
 func _process(_delta):
-	if Input.is_key_pressed(id):
-		print("1 PRESSED")
+	if Input.is_action_just_released(playerId):
+		active = !active
+		animationState.travel("Idle")
+		print(velocity)
 	
 func _physics_process(delta):
-	handle_move_state(delta)
+	if active:
+		handle_move_state(delta)
 
 func handle_move_state(delta):
 	var input_vector = Vector2.ZERO
