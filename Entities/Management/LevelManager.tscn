@@ -11,4 +11,7 @@ script = ExtResource( 2 )
 [node name="ColorRect" parent="LevelEnd" index="0"]
 color = Color( 0, 0, 0, 0.2 )
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [editable path="LevelEnd"]

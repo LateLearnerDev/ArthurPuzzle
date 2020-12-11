@@ -5,6 +5,15 @@ export var next_scene: PackedScene
 onready var goals: Array = get_tree().get_nodes_in_group("Goals")
 onready var level_end: CanvasLayer = $LevelEnd
 onready var arthurs = CharacterManagement.initialise_arthurs()
+onready var timer: Timer = $Timer
+
+# We need to somehow connect when the player freezes/reaches goal, to the timer
+
+func _ready():
+	timer.start(3)
+
+func _process(delta):
+	print(timer.time_left)
 
 func _check_all_goals():
 	CharacterManagement.slow_arthurs(arthurs)
