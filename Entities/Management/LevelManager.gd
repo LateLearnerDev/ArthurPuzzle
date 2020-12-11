@@ -4,11 +4,15 @@ extends Node2D
 export var next_scene: PackedScene
 onready var goals: Array = get_tree().get_nodes_in_group("Goals")
 onready var level_end: CanvasLayer = $LevelEnd
-
-func _ready():
-	CharacterManagement.initialise_arthurs()
+onready var arthurs = CharacterManagement.initialise_arthurs()
 
 func _check_all_goals():
+	CharacterManagement.slow_arthurs(arthurs)
+	
+	for arthur in arthurs:
+		if arthur.goal_reached:
+			CharacterManagement.freeze_arthur(arthur)
+	
 	for goal in goals:
 		if !goal.reached:
 			return

@@ -9,6 +9,7 @@ var state
 var velocity = Vector2.ZERO
 var playerId
 var active = true
+var goal_reached = false
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -18,10 +19,9 @@ func _ready():
 	animationTree.active = true
 	
 func _process(_delta):
-	if Input.is_action_just_released(playerId):
-		active = !active
-		animationState.travel("Idle")
-		print(velocity)
+	if !goal_reached:
+		if Input.is_action_just_released(playerId):
+			set_idle() if active else set_active()
 	
 func _physics_process(delta):
 	if active:
@@ -43,4 +43,14 @@ func handle_move_state(delta):
 		velocity = Vector2.ZERO
 		
 	velocity = move_and_slide(velocity * delta)
+	
+func slow_down():
+	speed /= 2
+	
+func set_idle():
+	active = false
+	animationState.travel("Idle")
+	
+func set_active():
+	active = true
 		
