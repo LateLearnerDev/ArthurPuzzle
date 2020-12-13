@@ -17,6 +17,7 @@ func _ready():
 	timer_label = $HUD/label_timer
 	timer_label.text = str(countdown_seconds)
 	
+	
 func _process(_delta):
 	if countdown_active and countdown_seconds > 0:
 		countdown_seconds -= _delta
