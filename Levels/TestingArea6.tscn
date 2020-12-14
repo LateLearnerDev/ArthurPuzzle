@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Entities/Player/Arthur.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Management/LevelManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/World/GoalTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/World/ProtoWall.tscn" type="PackedScene" id=4]
+
+[node name="World3" type="Node2D"]
+
+[node name="LevelManager" parent="." instance=ExtResource( 2 )]
+
+[node name="GoalTile2" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 72, 104 )
+
+[node name="GoalTile1" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 88, 104 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Arthur" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 80, 40 )
+
+[node name="Arthur2" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 96, 40 )
+
+[node name="ProtoWall" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 72, 56 )
+
+[node name="ProtoWall2" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 72, 88 )
+
+[node name="ProtoWall6" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 88, 88 )
+
+[node name="ProtoWall3" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 88, 72 )
+
+[node name="ProtoWall4" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 72, 72 )
+
+[node name="ProtoWall5" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 88, 56 )
+[connection signal="goal_exited" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_reached" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_exited" from="GoalTile1" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_reached" from="GoalTile1" to="LevelManager" method="_check_all_goals"]
+
+[editable path="LevelManager"]
