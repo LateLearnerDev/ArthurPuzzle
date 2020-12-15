@@ -26,12 +26,12 @@ position = Vector2( 144, 112 )
 [node name="Arthur" parent="YSort" groups=[
 "Arthurs",
 ] instance=ExtResource( 1 )]
-position = Vector2( 120, 40 )
+position = Vector2( 72, 40 )
 
 [node name="Arthur2" parent="YSort" groups=[
 "Arthurs",
 ] instance=ExtResource( 1 )]
-position = Vector2( 56, 40 )
+position = Vector2( 128, 40 )
 
 [node name="ProtoWall" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 160, 32 )

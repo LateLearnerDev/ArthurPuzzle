@@ -4,6 +4,7 @@
 [ext_resource path="res://Entities/Management/LevelManager.gd" type="Script" id=2]
 
 [node name="LevelManager" type="Node2D"]
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="LevelEnd" parent="." instance=ExtResource( 1 )]

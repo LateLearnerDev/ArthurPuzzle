@@ -1,16 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/Player/Arthur.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Management/LevelManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/World/GoalTile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/World/ProtoWall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/World/Spikes.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Levels/TestingArea7.tscn" type="PackedScene" id=6]
 
 [node name="World3" type="Node2D"]
 
 [node name="LevelManager" parent="." instance=ExtResource( 2 )]
-next_scene = ExtResource( 6 )
 
 [node name="GoalTile2" parent="." groups=[
 "Goals",
@@ -27,35 +25,53 @@ position = Vector2( 104, 104 )
 [node name="Arthur" parent="YSort" groups=[
 "Arthurs",
 ] instance=ExtResource( 1 )]
-position = Vector2( 80, 40 )
+position = Vector2( 80, 8 )
 
 [node name="Arthur2" parent="YSort" groups=[
 "Arthurs",
 ] instance=ExtResource( 1 )]
-position = Vector2( 96, 40 )
+position = Vector2( 96, 8 )
 
 [node name="ProtoWall" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 72, 56 )
+position = Vector2( 24, 8 )
 
 [node name="ProtoWall2" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 72, 88 )
+position = Vector2( 24, 40 )
+
+[node name="ProtoWall7" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 24, 72 )
+
+[node name="ProtoWall9" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 24, 88 )
+
+[node name="ProtoWall8" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 24, 56 )
 
 [node name="ProtoWall6" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 88, 88 )
+position = Vector2( 136, 40 )
+
+[node name="ProtoWall10" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 136, 88 )
+
+[node name="ProtoWall11" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 136, 72 )
+
+[node name="ProtoWall12" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 136, 56 )
 
 [node name="ProtoWall3" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 88, 72 )
+position = Vector2( 136, 24 )
 
 [node name="ProtoWall4" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 72, 72 )
+position = Vector2( 24, 24 )
 
 [node name="ProtoWall5" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 88, 56 )
+position = Vector2( 136, 8 )
 
 [node name="SpikeSet" type="Node" parent="YSort"]
 
 [node name="Spikes14" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
-position = Vector2( 120, 72 )
+position = Vector2( 88, 56 )
 type = 1
 
 [node name="Spikes" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
@@ -63,20 +79,17 @@ position = Vector2( 120, 56 )
 type = 1
 
 [node name="Spikes15" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
-position = Vector2( 120, 88 )
-type = 1
+position = Vector2( 104, 72 )
 
 [node name="Spikes2" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
 position = Vector2( 40, 24 )
 type = 1
 
 [node name="Spikes11" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
-position = Vector2( 40, 40 )
-type = 1
+position = Vector2( 56, 88 )
 
 [node name="Spikes3" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
 position = Vector2( 56, 24 )
-type = 1
 
 [node name="Spikes4" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
 position = Vector2( 72, 24 )
@@ -84,19 +97,17 @@ type = 1
 
 [node name="Spikes5" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
 position = Vector2( 88, 24 )
-type = 1
 
 [node name="Spikes6" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
 position = Vector2( 104, 24 )
 type = 1
 
 [node name="Spikes7" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
-position = Vector2( 40, 72 )
+position = Vector2( 72, 56 )
 type = 1
 
 [node name="Spikes12" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
-position = Vector2( 40, 88 )
-type = 1
+position = Vector2( 104, 88 )
 
 [node name="Spikes8" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
 position = Vector2( 40, 56 )
@@ -107,8 +118,7 @@ position = Vector2( 120, 24 )
 type = 1
 
 [node name="Spikes10" parent="YSort/SpikeSet" instance=ExtResource( 5 )]
-position = Vector2( 120, 40 )
-type = 1
+position = Vector2( 56, 72 )
 [connection signal="goal_exited" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
 [connection signal="goal_reached" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
 [connection signal="goal_exited" from="GoalTile1" to="LevelManager" method="_check_all_goals"]
