@@ -7,6 +7,7 @@ enum {
 export var speed = 1800
 var state
 var velocity = Vector2.ZERO
+var force = Vector2.ZERO
 var playerId
 var active = true
 var goal_reached = false
@@ -28,6 +29,8 @@ func _process(_delta):
 func _physics_process(delta):
 	if active:
 		handle_move_state(delta)
+	else:
+		handle_idle_state(delta)
 
 func handle_move_state(delta) -> void:
 	var input_vector = Vector2.ZERO
@@ -42,9 +45,11 @@ func handle_move_state(delta) -> void:
 		velocity = input_vector * speed
 	else:
 		animationState.travel("Idle")
-		velocity = Vector2.ZERO
-		
-	velocity = move_and_slide(velocity * delta)
+				
+	velocity = move_and_slide((velocity + force) * delta)
+
+func handle_idle_state(delta) -> void:
+	move_and_slide(force * delta)
 	
 func slow_down() -> void:
 	speed /= 2

@@ -4,7 +4,7 @@
 [ext_resource path="res://Entities/Player/Arthur.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 2.93942
+radius = 2.0
 height = 2.12116
 
 [sub_resource type="Animation" id=2]
@@ -219,7 +219,7 @@ hframes = 20
 frame = 6
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 4 )
+position = Vector2( 0, 5.125 )
 rotation = 1.5708
 shape = SubResource( 1 )
 

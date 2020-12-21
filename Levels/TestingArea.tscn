@@ -20,5 +20,5 @@ position = Vector2( 80, 112 )
 [node name="Arthur" parent="YSort" groups=[
 "Arthurs",
 ] instance=ExtResource( 1 )]
-position = Vector2( 88, 48 )
+position = Vector2( 88, 24 )
 [connection signal="goal_reached" from="GoalTile" to="LevelManager" method="_check_all_goals"]

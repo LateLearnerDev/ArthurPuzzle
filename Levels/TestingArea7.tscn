@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Entities/Player/Arthur.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Management/LevelManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/World/GoalTile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/World/ProtoWall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/World/Spikes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/TestingArea8.tscn" type="PackedScene" id=6]
 
 [node name="World3" type="Node2D"]
 
 [node name="LevelManager" parent="." instance=ExtResource( 2 )]
+next_scene = ExtResource( 6 )
 
 [node name="GoalTile2" parent="." groups=[
 "Goals",

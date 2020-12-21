@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Entities/Player/Arthur.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/TestingArea9.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/World/GoalTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Management/LevelManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/World/Force.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TileMaps/ConveyorBeltTm.tscn" type="PackedScene" id=6]
+
+[node name="World1" type="Node2D"]
+
+[node name="LevelManager" parent="." instance=ExtResource( 4 )]
+next_scene = ExtResource( 2 )
+
+[node name="GoalTile" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 104, 80 )
+
+[node name="GoalTile2" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 32, 16 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Arthur" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 56, 72 )
+
+[node name="Arthur2" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 112, 72 )
+
+[node name="Force" parent="." instance=ExtResource( 5 )]
+position = Vector2( 40, 48 )
+y_force = -900
+
+[node name="CollisionShape2D" parent="Force" index="0"]
+position = Vector2( 0.25, 6.75 )
+
+[node name="TileMap" parent="." instance=ExtResource( 6 )]
+tile_data = PoolIntArray( 131074, 0, 0, 196610, 0, 0, 262146, 0, 0 )
+[connection signal="goal_reached" from="GoalTile" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_reached" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
+
+[editable path="Force"]
+
+[editable path="TileMap"]

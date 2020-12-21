@@ -2,7 +2,7 @@ tool
 extends Node2D
 
 export var next_scene: PackedScene
-export onready var countdown_seconds: float = 3.0
+export var countdown_seconds: float = 3.0
 onready var goals: Array = get_tree().get_nodes_in_group("Goals")
 onready var level_end: CanvasLayer = $LevelEnd
 onready var arthurs = CharacterManagement.initialise_arthurs()

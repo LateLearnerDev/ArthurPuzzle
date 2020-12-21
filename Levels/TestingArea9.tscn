@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Entities/Player/Arthur.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/World/Spikes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/World/GoalTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Management/LevelManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/World/Force.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TileMaps/ConveyorBeltTm.tscn" type="PackedScene" id=6]
+
+[node name="World1" type="Node2D"]
+
+[node name="LevelManager" parent="." instance=ExtResource( 4 )]
+countdown_seconds = 6.0
+
+[node name="GoalTile" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 104, 96 )
+
+[node name="GoalTile2" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 32, 16 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Arthur" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 40, 88 )
+
+[node name="Arthur2" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 112, 32 )
+
+[node name="Spikes" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 88, 32 )
+type = 1
+
+[node name="Spikes19" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 88, 16 )
+type = 1
+
+[node name="Spikes20" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 104, 0 )
+type = 1
+
+[node name="Spikes2" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 88, 48 )
+type = 1
+
+[node name="Spikes4" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 104, 64 )
+type = 1
+
+[node name="Spikes5" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 120, 64 )
+type = 1
+
+[node name="Spikes6" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 120, 80 )
+type = 1
+
+[node name="Spikes3" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 120, 32 )
+type = 1
+
+[node name="Spikes21" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 120, 16 )
+type = 1
+
+[node name="Spikes7" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 136, 32 )
+type = 1
+
+[node name="Spikes8" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 152, 48 )
+type = 1
+
+[node name="Spikes9" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 152, 64 )
+type = 1
+
+[node name="Spikes10" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 152, 80 )
+type = 1
+
+[node name="Spikes11" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 152, 96 )
+type = 1
+
+[node name="Spikes12" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 152, 112 )
+type = 1
+
+[node name="Spikes13" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 136, 112 )
+type = 1
+
+[node name="Spikes14" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 120, 112 )
+type = 1
+
+[node name="Spikes15" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 104, 112 )
+type = 1
+
+[node name="Spikes16" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 88, 96 )
+type = 1
+
+[node name="Spikes17" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 104, 80 )
+type = 1
+
+[node name="Spikes18" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 104, 80 )
+type = 1
+
+[node name="Force" parent="." instance=ExtResource( 5 )]
+position = Vector2( 40, 48 )
+y_force = -900
+
+[node name="CollisionShape2D" parent="Force" index="0"]
+position = Vector2( 0.25, 6.75 )
+
+[node name="TileMap" parent="." instance=ExtResource( 6 )]
+tile_data = PoolIntArray( 131074, 0, 0, 196610, 0, 0, 262146, 0, 0 )
+[connection signal="goal_reached" from="GoalTile" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_reached" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
+
+[editable path="Force"]
+
+[editable path="TileMap"]
