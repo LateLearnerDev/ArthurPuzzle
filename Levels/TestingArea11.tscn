@@ -38,9 +38,11 @@ position = Vector2( 32, 32 )
 
 [node name="WeightTile1L" parent="." instance=ExtResource( 4 )]
 position = Vector2( 112, 48 )
+max_bodies = 1
 
 [node name="WeightTile1L2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 80, 0 )
+max_bodies = 1
 
 [node name="Holes" type="Node2D" parent="."]
 

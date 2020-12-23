@@ -240,3 +240,13 @@ active = true
 parameters/playback = SubResource( 23 )
 parameters/Idle/blend_position = Vector2( 0, 0.1 )
 parameters/Walk/blend_position = Vector2( 0, 0.1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -4.625
+margin_top = -23.875
+margin_right = 4.375
+margin_bottom = -9.875
+text = "d"
+__meta__ = {
+"_edit_use_anchors_": false
+}

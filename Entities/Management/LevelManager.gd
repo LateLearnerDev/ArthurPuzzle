@@ -50,7 +50,7 @@ func _check_all_goals():
 	
 	for arthur in arthurs:
 		if arthur.goal_reached:
-			CharacterManagement.freeze_arthur(arthur)
+			CharacterManagement.arthur_complete(arthur)
 	
 	for goal in goals:
 		if !goal.reached:

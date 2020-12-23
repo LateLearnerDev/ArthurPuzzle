@@ -11,6 +11,10 @@ var force = Vector2.ZERO
 var playerId
 var active = true
 var goal_reached = false
+const green = "#48b237"
+const red = "#f02323"
+const blue = "#1d6dca"
+onready var player_label = $Label
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
@@ -20,12 +24,15 @@ signal arthur_freed
 
 func _ready():
 	animationTree.active = true
+	player_label.text = playerId[playerId.length() - 1]
+	player_label.modulate = green
 	
 func _process(_delta):
 	if !goal_reached:
 		if Input.is_action_just_released(playerId):
 			# warning-ignore:standalone_ternary
 			arthur_froze() if active else arthur_freed()
+	
 	
 func _physics_process(delta):
 	if active:
@@ -57,12 +64,17 @@ func slow_down() -> void:
 	speed /= 2
 	
 func arthur_froze() -> void:
+	player_label.modulate = red
 	set_idle()
 	emit_signal("arthur_froze")
 	
 func arthur_freed() -> void:
+	player_label.modulate = green
 	set_active()
 	emit_signal("arthur_freed")
+	
+func set_complete() -> void:
+	player_label.modulate = blue
 	
 func set_idle() -> void:
 	active = false

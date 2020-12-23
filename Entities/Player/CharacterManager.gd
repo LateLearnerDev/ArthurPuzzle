@@ -17,6 +17,11 @@ func slow_arthurs(arthurs):
 
 func freeze_arthur(arthur):
 	arthur.set_idle()
+	
+func arthur_complete(arthur):
+	arthur.set_idle()
+	arthur.set_complete()
+	
 
 	
 
