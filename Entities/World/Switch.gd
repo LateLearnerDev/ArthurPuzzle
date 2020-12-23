@@ -10,6 +10,6 @@ func _get_configuration_warning() -> String:
 	return "The switch has no connected items" if not connected_items else ""
 
 
-func _on_Switch_body_entered(body):
+func _on_Switch_body_entered(_body):
 	for item in connected_items:
 		item.queue_free()

@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Entities/Player/Arthur.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Management/LevelManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/World/GoalTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/World/WeightTile1L.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/World/HoleTop.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/TestingArea11.tscn" type="PackedScene" id=7]
+
+[node name="World3" type="Node2D"]
+
+[node name="LevelManager" parent="." instance=ExtResource( 2 )]
+next_scene = ExtResource( 7 )
+countdown_seconds = 3.0
+
+[node name="GoalTile2" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 64, 96 )
+
+[node name="GoalTile1" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 96, 96 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Arthur" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 72, 40 )
+
+[node name="Arthur2" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 104, 40 )
+
+[node name="Walls" type="Node" parent="YSort"]
+
+[node name="WeightTile1L" parent="." instance=ExtResource( 4 )]
+position = Vector2( 112, 72 )
+rotation = 1.5708
+
+[node name="Holes" type="Node2D" parent="."]
+
+[node name="SwHoleTop" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 160, 72 )
+
+[node name="HoleTop7" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 128, 72 )
+
+[node name="HoleTop6" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 144, 72 )
+
+[node name="HoleTop9" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 112, 72 )
+
+[node name="HoleTop10" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 32, 72 )
+
+[node name="HoleTop11" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 48, 72 )
+
+[node name="HoleTop12" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 0, 72 )
+
+[node name="HoleTop13" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 16, 72 )
+[connection signal="goal_exited" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_reached" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_exited" from="GoalTile1" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_reached" from="GoalTile1" to="LevelManager" method="_check_all_goals"]
+
+[editable path="LevelManager"]

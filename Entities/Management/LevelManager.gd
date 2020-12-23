@@ -29,6 +29,7 @@ func _process(_delta):
 func timer_end_check():
 	if countdown_seconds <= 0:
 		countdown_seconds = 0	
+# warning-ignore:return_value_discarded
 		get_tree().reload_current_scene()
 
 func timer_start():

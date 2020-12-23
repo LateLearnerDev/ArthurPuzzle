@@ -24,6 +24,7 @@ func _ready():
 func _process(_delta):
 	if !goal_reached:
 		if Input.is_action_just_released(playerId):
+			# warning-ignore:standalone_ternary
 			arthur_froze() if active else arthur_freed()
 	
 func _physics_process(delta):
@@ -49,6 +50,7 @@ func handle_move_state(delta) -> void:
 	velocity = move_and_slide((velocity + force) * delta)
 
 func handle_idle_state(delta) -> void:
+	# warning-ignore:return_value_discarded
 	move_and_slide(force * delta)
 	
 func slow_down() -> void:

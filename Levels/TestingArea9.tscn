@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Entities/Player/Arthur.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/World/Spikes.tscn" type="PackedScene" id=2]
@@ -6,10 +6,12 @@
 [ext_resource path="res://Entities/Management/LevelManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/World/Force.tscn" type="PackedScene" id=5]
 [ext_resource path="res://TileMaps/ConveyorBeltTm.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/TestingArea10.tscn" type="PackedScene" id=7]
 
 [node name="World1" type="Node2D"]
 
 [node name="LevelManager" parent="." instance=ExtResource( 4 )]
+next_scene = ExtResource( 7 )
 countdown_seconds = 6.0
 
 [node name="GoalTile" parent="." groups=[
@@ -120,6 +122,7 @@ type = 1
 
 [node name="Force" parent="." instance=ExtResource( 5 )]
 position = Vector2( 40, 48 )
+x_force = 0
 y_force = -900
 
 [node name="CollisionShape2D" parent="Force" index="0"]

@@ -1,0 +1,141 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Entities/Player/Arthur.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Management/LevelManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/World/GoalTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/World/WeightTile1L.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/World/HoleTop.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/World/HoleBottom.tscn" type="PackedScene" id=6]
+
+[node name="World3" type="Node2D"]
+
+[node name="LevelManager" parent="." instance=ExtResource( 2 )]
+countdown_seconds = 8.0
+
+[node name="GoalTile2" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 96, 32 )
+
+[node name="GoalTile1" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 112, 96 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Arthur" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 32, 16 )
+
+[node name="Arthur2" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 32, 32 )
+
+[node name="Walls" type="Node" parent="YSort"]
+
+[node name="WeightTile1L" parent="." instance=ExtResource( 4 )]
+position = Vector2( 112, 48 )
+
+[node name="WeightTile1L2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 80, 0 )
+
+[node name="Holes" type="Node2D" parent="."]
+
+[node name="SwHoleTop" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 160, 48 )
+
+[node name="HoleTop7" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 128, 48 )
+
+[node name="HoleTop6" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 144, 48 )
+
+[node name="HoleTop8" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 80, 48 )
+
+[node name="HoleTop9" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 96, 48 )
+
+[node name="SwHoleTop3" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 64, 48 )
+
+[node name="HoleTop10" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 32, 48 )
+
+[node name="HoleTop11" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 48, 48 )
+
+[node name="HoleTop12" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 0, 48 )
+
+[node name="HoleTop13" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 16, 48 )
+
+[node name="SwHoleBottom" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 48, 64 )
+
+[node name="HoleBottom2" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 16, 64 )
+
+[node name="HoleBottom3" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 0, 64 )
+
+[node name="HoleBottom4" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 144, 80 )
+
+[node name="HoleBottom8" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 128, 64 )
+
+[node name="HoleBottom9" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 160, 64 )
+
+[node name="HoleBottom10" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 144, 64 )
+
+[node name="HoleBottom11" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 80, 64 )
+
+[node name="HoleBottom12" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 64, 64 )
+
+[node name="HoleBottom13" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 32, 64 )
+
+[node name="HoleBottom6" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 96, 64 )
+
+[node name="SwHoleBottom2" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 48, 80 )
+
+[node name="HoleBottom14" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 16, 80 )
+
+[node name="HoleBottom15" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 0, 80 )
+
+[node name="HoleBottom17" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 128, 80 )
+
+[node name="HoleBottom18" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 80, 80 )
+
+[node name="HoleBottom19" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 64, 80 )
+
+[node name="HoleBottom20" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 32, 80 )
+
+[node name="HoleBottom21" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 96, 80 )
+
+[node name="HoleBottom7" parent="Holes" instance=ExtResource( 6 )]
+position = Vector2( 160, 80 )
+[connection signal="goal_exited" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_reached" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_exited" from="GoalTile1" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_reached" from="GoalTile1" to="LevelManager" method="_check_all_goals"]
+
+[editable path="LevelManager"]
