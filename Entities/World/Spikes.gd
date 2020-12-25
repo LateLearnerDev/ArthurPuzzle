@@ -9,7 +9,6 @@ func _ready():
 	# in the same file
 	if type == TYPE.INTERMITTENT:
 		$ApConstantSpikes.queue_free()
-		$ApConstantSpikes.queue_free()
 		animPlayer = $AnimationPlayer
 		animPlayer.play("Active")
 	elif type == TYPE.CONSTANT:
@@ -18,10 +17,4 @@ func _ready():
 		$CollisionShape2D.disabled = false
 		animPlayer = $ApConstantSpikes
 		animPlayer.play("ActiveConstant")
-		
-		
-
-func _on_Spikes_entered(_body):
-	print('spikes touched')
-# warning-ignore:return_value_discarded
-	get_tree().reload_current_scene()
+	

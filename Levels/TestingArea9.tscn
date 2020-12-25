@@ -122,7 +122,6 @@ type = 1
 
 [node name="Force" parent="." instance=ExtResource( 5 )]
 position = Vector2( 40, 48 )
-x_force = 0
 y_force = -900
 
 [node name="CollisionShape2D" parent="Force" index="0"]

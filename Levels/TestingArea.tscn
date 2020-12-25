@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/Player/Arthur.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/TestingArea2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/World/GoalTile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Management/LevelManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/World/EvilBall.tscn" type="PackedScene" id=5]
 
 [node name="World1" type="Node2D"]
 
@@ -21,4 +22,7 @@ position = Vector2( 80, 112 )
 "Arthurs",
 ] instance=ExtResource( 1 )]
 position = Vector2( 88, 24 )
+
+[node name="EvilBall" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 80, 40 )
 [connection signal="goal_reached" from="GoalTile" to="LevelManager" method="_check_all_goals"]

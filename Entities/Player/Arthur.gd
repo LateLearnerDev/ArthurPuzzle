@@ -14,6 +14,7 @@ var goal_reached = false
 const green = "#48b237"
 const red = "#f02323"
 const blue = "#1d6dca"
+onready var hurt_box = $HurtBox
 onready var player_label = $Label
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -82,4 +83,9 @@ func set_idle() -> void:
 	
 func set_active() -> void:
 	active = true
-		
+
+func _on_HurtBox_area_entered(area):
+	get_tree().reload_current_scene()
+
+func _on_FeetHurtBox_area_entered(area):
+	get_tree().reload_current_scene()
