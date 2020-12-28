@@ -1,0 +1,140 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Entities/Player/Arthur.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Management/LevelManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/World/GoalTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/World/ProtoWall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/World/Spikes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/World/EvilBall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://TileMaps/ConveyorBeltTm.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/World/Force.tscn" type="PackedScene" id=9]
+
+[node name="World3" type="Node2D"]
+
+[node name="LevelManager" parent="." instance=ExtResource( 2 )]
+
+[node name="HUD" parent="LevelManager" index="1"]
+visible = false
+
+[node name="GoalTile2" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 64, 32 )
+
+[node name="GoalTile1" parent="." groups=[
+"Goals",
+] instance=ExtResource( 3 )]
+position = Vector2( 96, 32 )
+
+[node name="Spikes" parent="GoalTile1" instance=ExtResource( 5 )]
+position = Vector2( -16, 16 )
+type = 1
+
+[node name="Spikes5" parent="GoalTile1" instance=ExtResource( 5 )]
+position = Vector2( -16, 0 )
+type = 1
+
+[node name="Spikes6" parent="GoalTile1" instance=ExtResource( 5 )]
+position = Vector2( -32, -16 )
+type = 1
+
+[node name="Spikes7" parent="GoalTile1" instance=ExtResource( 5 )]
+position = Vector2( 0, -16 )
+type = 1
+
+[node name="Spikes2" parent="GoalTile1" instance=ExtResource( 5 )]
+position = Vector2( -16, 64 )
+type = 1
+
+[node name="Spikes3" parent="GoalTile1" instance=ExtResource( 5 )]
+position = Vector2( -16, 48 )
+type = 1
+
+[node name="Spikes4" parent="GoalTile1" instance=ExtResource( 5 )]
+position = Vector2( -16, 32 )
+type = 1
+
+[node name="ConveyorBeltTm" parent="." instance=ExtResource( 8 )]
+position = Vector2( 40, 120 )
+cell_size = Vector2( 8, 8 )
+tile_data = PoolIntArray( -589821, 0, 0, -589817, 0, 0, -458749, 0, 0, -458745, 0, 0, -327677, 0, 0, -327673, 0, 0, -196605, 0, 0, -196601, 0, 0 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Arthur" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 72, 120 )
+
+[node name="Arthur2" parent="YSort" groups=[
+"Arthurs",
+] instance=ExtResource( 1 )]
+position = Vector2( 104, 120 )
+
+[node name="ProtoWall" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 24, 48 )
+
+[node name="ProtoWall2" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 24, 96 )
+
+[node name="ProtoWall6" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 136, 96 )
+
+[node name="ProtoWall3" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 136, 72 )
+
+[node name="ProtoWall8" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 160, 104 )
+
+[node name="ProtoWall4" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 24, 72 )
+
+[node name="ProtoWall5" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 136, 48 )
+
+[node name="ProtoWall7" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 160, 32 )
+
+[node name="SpikeSet" type="Node" parent="YSort"]
+
+[node name="EvilBall" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 56, 56 )
+x_speed = 25
+
+[node name="EvilBall2" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 128, 80 )
+x_speed = -25
+
+[node name="EvilBall4" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 168, 56 )
+y_speed = 80
+
+[node name="ProtoWall9" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 0, 104 )
+
+[node name="ProtoWall10" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 0, 32 )
+
+[node name="EvilBall5" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 8, 96 )
+y_speed = -80
+
+[node name="EvilBall3" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 56, 104 )
+x_speed = 25
+
+[node name="Force" parent="." instance=ExtResource( 9 )]
+position = Vector2( 64, 68 )
+scale = Vector2( 1, 1.28 )
+y_force = -900
+
+[node name="Force2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 96, 69 )
+scale = Vector2( 1, 1.28 )
+y_force = -900
+[connection signal="goal_exited" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_reached" from="GoalTile2" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_exited" from="GoalTile1" to="LevelManager" method="_check_all_goals"]
+[connection signal="goal_reached" from="GoalTile1" to="LevelManager" method="_check_all_goals"]
+
+[editable path="LevelManager"]

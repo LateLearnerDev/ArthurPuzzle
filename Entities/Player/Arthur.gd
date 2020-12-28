@@ -84,8 +84,8 @@ func set_idle() -> void:
 func set_active() -> void:
 	active = true
 
-func _on_HurtBox_area_entered(area):
+func _on_HurtBox_area_entered(_area):
 	get_tree().reload_current_scene()
 
-func _on_FeetHurtBox_area_entered(area):
+func _on_FeetHurtBox_area_entered(_area):
 	get_tree().reload_current_scene()

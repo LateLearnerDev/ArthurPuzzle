@@ -219,6 +219,7 @@ height = 1.9676
 [node name="Arthur" type="KinematicBody2D"]
 position = Vector2( 0, -6 )
 collision_layer = 2
+collision_mask = 33
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
